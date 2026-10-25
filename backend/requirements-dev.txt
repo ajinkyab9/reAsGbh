@@ -1,0 +1,5 @@
+# Local dev, tests and the ingestion script
+-r requirements.txt
+pytest==9.1.1
+httpx2==2.16.0     # TestClient backend (plain httpx is deprecated by Starlette)
+requests==2.34.2   # used by scripts/ingest.py
