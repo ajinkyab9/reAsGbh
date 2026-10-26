@@ -221,4 +221,4 @@ While exploring the data, the offset also showed up in the rows each WINDFOR run
 
 ## Use of AI tools
 
-I used Claude and Gemini for research and code references: to research the GB day-ahead market and the Elexon datasets, to discuss and review design decisions, and to review my code.
+I used Claude and Gemini for research and code references: to research the GB day-ahead market and the Elexon datasets, to discuss and review design decisions, and to review my code and help me write parts of it.
