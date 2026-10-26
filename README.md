@@ -195,10 +195,10 @@ Cutoffs are built in `Europe/London` and converted to UTC, so the logic stays co
 
 ## Findings (EPEX 60-minute cutoff, 2 Jan to 1 Feb)
 
-- The forecast ran consistently high: average bias **TODO MW**, too high in **TODO%** of hours.
-- Typical miss (MAE) **TODO MW**, about **TODO%** of average output. RMSE **TODO MW**.
-- The P90 buffer, sized only from earlier days, averaged about **TODO MW** and covered **TODO%** of hours against a 90% target.
-- Correcting for the bias alone, learned only from earlier days, would have cut the typical miss from **TODO MW** to **TODO MW**.
+- The forecast ran consistently high: average bias **+1,748 MW**, too high in **85%** of hours.
+- Typical miss (MAE) **2,039 MW**, about **18%** of average output. RMSE, which weights the large misses more heavily, is shown alongside it in the app's month view.
+- The P90 buffer, sized only from earlier days, averaged about **4,009 MW** and covered **88%** of hours against a 90% target.
+- Correcting for the bias alone, learned only from earlier days, would have cut the typical miss from **2,030 MW** to **1,445 MW** (over the days with enough history to size a buffer, from 5 January).
 - Fresher forecasts help only slightly (compare the three auction presets in the app): the error is dominated by the consistent offset, not by forecasting too far ahead.
 
 While exploring the data, the offset also showed up in the rows each WINDFOR run includes for hours that had already passed: they sit well above FUELHH actuals for the same hours. That suggests the two datasets don't measure exactly the same thing (for example fleet coverage, curtailment, or peak rather than average output). This can't be resolved using Elexon data alone, so the app treats it as a consistent offset and quantifies it rather than explaining it.
