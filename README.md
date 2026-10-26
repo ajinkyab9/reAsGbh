@@ -3,7 +3,7 @@
 Shows a UK utility's day-ahead trading team the national wind forecast they actually had when the auction closed, and how far to trust it, so they know how much wind to count on before they buy.
 
 **Live app:** https://reasgbh.vercel.app
-**Video walkthrough:** TODO (unlisted YouTube link)
+**Video walkthrough:** https://youtu.be/UkJlgSiiRJA
 **API docs:** https://reasgbh.vercel.app/api/docs
 
 ## What it does
