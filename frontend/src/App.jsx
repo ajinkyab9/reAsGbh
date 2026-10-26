@@ -85,6 +85,12 @@ export default function App() {
           </section>
         )}
 
+        {summary.error && (
+          <p className="py-8">
+            Couldn&rsquo;t load the month view ({summary.error.message}). Reload the page to try
+            again.
+          </p>
+        )}
         {summary.data && (
           <MonthSummary
             data={summary.data}
