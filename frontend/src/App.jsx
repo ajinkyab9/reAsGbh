@@ -3,6 +3,7 @@ import { apiPath } from './api'
 import { fmtDay } from './format'
 import Headline from './Headline'
 import HourlyChart from './HourlyChart'
+import MonthSummary from './MonthSummary'
 import { useApi } from './useApi'
 
 export default function App() {
@@ -13,6 +14,12 @@ export default function App() {
   // uses the default cutoff from API until a user selects otherwise
   const cutoff = cutoffChoice ?? meta.data?.default_cutoff
   const day = dayChoice ?? meta.data?.days.at(-1)
+  // clicking a day in the month chart opens it at the top of the page.
+  const openDay = (d) => {
+    setDay(d)
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
+  }
 
   const summary = useApi(cutoff ? apiPath('/summary', { cutoff }) : null)
   const dayData = useApi(day && cutoff ? apiPath('/day', { date: day, cutoff }) : null)
@@ -78,12 +85,14 @@ export default function App() {
           </section>
         )}
 
-        <section className="py-8">
-          <h2 className="font-semibold">How the forecast performed, 2 Jan to 1 Feb</h2>
-          <div className="mt-4 grid h-56 place-items-center rounded bg-white/60 text-muted">
-            Month figures and daily chart
-          </div>
-        </section>
+        {summary.data && (
+          <MonthSummary
+            data={summary.data}
+            quantile={meta.data.buffer_quantile}
+            selectedDay={day}
+            onSelectDay={openDay}
+          />
+        )}
       </main>
     </div>
   )
