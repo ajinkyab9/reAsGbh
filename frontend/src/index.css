@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #eef2f3;   
+  --color-ink: #16232e;      
+  --color-muted: #5b6b78;    
+  --color-rule: #c9d3d8;     
+  --color-forecast: #2f6690; 
+  --color-risk: #b8740f;     
+}
+
+@layer base {
+  html {
+    font-variant-numeric: tabular-nums;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-forecast;
+  }
+}
